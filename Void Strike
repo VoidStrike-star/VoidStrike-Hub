@@ -1,0 +1,80 @@
+loadstring([[
+local player = game.Players.LocalPlayer
+local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+screenGui.Name = "VoidStrikeGUI"
+screenGui.ResetOnSpawn = false
+
+-- Toggle Icon Button
+local toggleButton = Instance.new("ImageButton", screenGui)
+toggleButton.Size = UDim2.new(0, 50, 0, 50)
+toggleButton.Position = UDim2.new(0, 10, 0, 10)
+toggleButton.Image = "rbxassetid://12222225" -- Change this to your icon ID
+toggleButton.BackgroundColor3 = Color3.new(0, 0, 0)
+toggleButton.BorderSizePixel = 1
+toggleButton.BorderColor3 = Color3.new(0, 0, 0)
+
+-- Main Frame
+local mainFrame = Instance.new("Frame", screenGui)
+mainFrame.Size = UDim2.new(0.5, 0, 0.6, 0)
+mainFrame.Position = UDim2.new(0.25, 0, -0.6, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 1
+mainFrame.BorderColor3 = Color3.new(0, 0, 0)
+mainFrame.Visible = false
+mainFrame.Active = true
+mainFrame.Draggable = true
+
+-- Toggle Function
+local function toggleFrame()
+	mainFrame.Visible = true
+	if mainFrame.Position.Y.Scale < 0 then
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, 0.2, 0), "Out", "Sine", 0.4, true)
+	else
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, -0.6, 0), "Out", "Sine", 0.4, true, function()
+			mainFrame.Visible = false
+		end)
+	end
+end
+toggleButton.MouseButton1Click:Connect(toggleFrame)
+
+-- Title
+local title = Instance.new("TextLabel", mainFrame)
+title.Size = UDim2.new(1, 0, 0.15, 0)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Text = "Made By VoidStrike"
+title.BackgroundTransparency = 1
+title.TextColor3 = Color3.new(1, 1, 1)
+title.Font = Enum.Font.SourceSansBold
+title.TextScaled = true
+
+-- Button Generator
+local function createButton(name, position, action)
+	local btn = Instance.new("TextButton", mainFrame)
+	btn.Size = UDim2.new(0.9, 0, 0.15, 0)
+	btn.Position = position
+	btn.Text = name
+	btn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	btn.TextColor3 = Color3.new(1, 1, 1)
+	btn.Font = Enum.Font.SourceSansBold
+	btn.TextScaled = true
+	btn.BorderSizePixel = 0
+	btn.MouseButton1Click:Connect(action)
+end
+
+-- Buttons
+createButton("Arbix Hub", UDim2.new(0.05, 0, 0.20, 0), function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Steal-a-Brianrot/refs/heads/main/ArbixHubBEST.lua"))()
+end)
+
+createButton("Brainrot Finder", UDim2.new(0.05, 0, 0.37, 0), function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/serverhopStealABrainrot"))()
+end)
+
+createButton("Delfi Hub", UDim2.new(0.05, 0, 0.54, 0), function()
+	loadstring(game:HttpGet("https://pastefy.app/44Il7q8s/raw"))()
+end)
+
+createButton("Grime Hub", UDim2.new(0.05, 0, 0.71, 0), function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/StealaBrainrot"))()
+end)
+]])()
