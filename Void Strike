@@ -8,15 +8,15 @@ screenGui.ResetOnSpawn = false
 local toggleButton = Instance.new("ImageButton", screenGui)
 toggleButton.Size = UDim2.new(0, 50, 0, 50)
 toggleButton.Position = UDim2.new(0, 10, 0, 10)
-toggleButton.Image = "rbxassetid://12222225" -- Change this to your icon ID
+toggleButton.Image = "rbxassetid://12222225" -- Replace with your actual icon asset ID
 toggleButton.BackgroundColor3 = Color3.new(0, 0, 0)
 toggleButton.BorderSizePixel = 1
 toggleButton.BorderColor3 = Color3.new(0, 0, 0)
 
 -- Main Frame
 local mainFrame = Instance.new("Frame", screenGui)
-mainFrame.Size = UDim2.new(0.5, 0, 0.75, 0) -- Increased height for 5 buttons
-mainFrame.Position = UDim2.new(0.25, 0, -0.75, 0)
+mainFrame.Size = UDim2.new(0.5, 0, 0.85, 0) -- Increased height for 6 buttons
+mainFrame.Position = UDim2.new(0.25, 0, -0.85, 0)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainFrame.BorderSizePixel = 1
 mainFrame.BorderColor3 = Color3.new(0, 0, 0)
@@ -28,9 +28,9 @@ mainFrame.Draggable = true
 local function toggleFrame()
 	mainFrame.Visible = true
 	if mainFrame.Position.Y.Scale < 0 then
-		mainFrame:TweenPosition(UDim2.new(0.25, 0, 0.125, 0), "Out", "Sine", 0.4, true)
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, 0.1, 0), "Out", "Sine", 0.4, true)
 	else
-		mainFrame:TweenPosition(UDim2.new(0.25, 0, -0.75, 0), "Out", "Sine", 0.4, true, function()
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, -0.85, 0), "Out", "Sine", 0.4, true, function()
 			mainFrame.Visible = false
 		end)
 	end
@@ -39,7 +39,7 @@ toggleButton.MouseButton1Click:Connect(toggleFrame)
 
 -- Title
 local title = Instance.new("TextLabel", mainFrame)
-title.Size = UDim2.new(1, 0, 0.12, 0)
+title.Size = UDim2.new(1, 0, 0.1, 0)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.Text = "Made By VoidStrike"
 title.BackgroundTransparency = 1
@@ -50,7 +50,7 @@ title.TextScaled = true
 -- Button Creator
 local function createButton(name, position, action)
 	local btn = Instance.new("TextButton", mainFrame)
-	btn.Size = UDim2.new(0.9, 0, 0.13, 0)
+	btn.Size = UDim2.new(0.9, 0, 0.12, 0)
 	btn.Position = position
 	btn.Text = name
 	btn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -62,23 +62,27 @@ local function createButton(name, position, action)
 end
 
 -- Buttons
-createButton("Arbix Hub", UDim2.new(0.05, 0, 0.14, 0), function()
+createButton("Arbix Hub", UDim2.new(0.05, 0, 0.12, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Steal-a-Brianrot/refs/heads/main/ArbixHubBEST.lua"))()
 end)
 
-createButton("Brainrot Finder", UDim2.new(0.05, 0, 0.29, 0), function()
+createButton("Brainrot Finder", UDim2.new(0.05, 0, 0.24, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/serverhopStealABrainrot"))()
 end)
 
-createButton("Delfi Hub", UDim2.new(0.05, 0, 0.44, 0), function()
+createButton("Delfi Hub", UDim2.new(0.05, 0, 0.36, 0), function()
 	loadstring(game:HttpGet("https://pastefy.app/44Il7q8s/raw"))()
 end)
 
-createButton("Grime Hub", UDim2.new(0.05, 0, 0.59, 0), function()
+createButton("Grime Hub", UDim2.new(0.05, 0, 0.48, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/StealaBrainrot"))()
 end)
 
-createButton("Index Hub", UDim2.new(0.05, 0, 0.74, 0), function()
+createButton("Index Hub", UDim2.new(0.05, 0, 0.60, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/stfurespectfully/indexhub/refs/heads/main/main.lua"))()
+end)
+
+createButton("Ugly Hub", UDim2.new(0.05, 0, 0.72, 0), function()
+	loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/53325754de16c11fbf8bf78101c1c881.lua"))()
 end)
 ]])()
