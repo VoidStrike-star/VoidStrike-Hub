@@ -8,14 +8,14 @@ screenGui.ResetOnSpawn = false
 local toggleButton = Instance.new("ImageButton", screenGui)
 toggleButton.Size = UDim2.new(0, 50, 0, 50)
 toggleButton.Position = UDim2.new(0, 10, 0, 10)
-toggleButton.Image = "rbxassetid://12222225" -- Replace with your actual icon asset ID
+toggleButton.Image = "rbxassetid://12222225" -- Replace with your icon ID
 toggleButton.BackgroundColor3 = Color3.new(0, 0, 0)
 toggleButton.BorderSizePixel = 1
 toggleButton.BorderColor3 = Color3.new(0, 0, 0)
 
 -- Main Frame
 local mainFrame = Instance.new("Frame", screenGui)
-mainFrame.Size = UDim2.new(0.5, 0, 0.85, 0) -- Increased height for 6 buttons
+mainFrame.Size = UDim2.new(0.5, 0, 0.85, 0)
 mainFrame.Position = UDim2.new(0.25, 0, -0.85, 0)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainFrame.BorderSizePixel = 1
@@ -61,7 +61,7 @@ local function createButton(name, position, action)
 	btn.MouseButton1Click:Connect(action)
 end
 
--- Buttons
+-- Buttons (5 scripts now)
 createButton("Arbix Hub", UDim2.new(0.05, 0, 0.12, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Steal-a-Brianrot/refs/heads/main/ArbixHubBEST.lua"))()
 end)
@@ -80,9 +80,5 @@ end)
 
 createButton("Index Hub", UDim2.new(0.05, 0, 0.60, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/stfurespectfully/indexhub/refs/heads/main/main.lua"))()
-end)
-
-createButton("Ugly Hub", UDim2.new(0.05, 0, 0.72, 0), function()
-	loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/53325754de16c11fbf8bf78101c1c881.lua"))()
 end)
 ]])()
