@@ -15,8 +15,8 @@ toggleButton.BorderColor3 = Color3.new(0, 0, 0)
 
 -- Main Frame
 local mainFrame = Instance.new("Frame", screenGui)
-mainFrame.Size = UDim2.new(0.5, 0, 0.6, 0)
-mainFrame.Position = UDim2.new(0.25, 0, -0.6, 0)
+mainFrame.Size = UDim2.new(0.5, 0, 0.75, 0) -- Increased height for 5 buttons
+mainFrame.Position = UDim2.new(0.25, 0, -0.75, 0)
 mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 mainFrame.BorderSizePixel = 1
 mainFrame.BorderColor3 = Color3.new(0, 0, 0)
@@ -28,9 +28,9 @@ mainFrame.Draggable = true
 local function toggleFrame()
 	mainFrame.Visible = true
 	if mainFrame.Position.Y.Scale < 0 then
-		mainFrame:TweenPosition(UDim2.new(0.25, 0, 0.2, 0), "Out", "Sine", 0.4, true)
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, 0.125, 0), "Out", "Sine", 0.4, true)
 	else
-		mainFrame:TweenPosition(UDim2.new(0.25, 0, -0.6, 0), "Out", "Sine", 0.4, true, function()
+		mainFrame:TweenPosition(UDim2.new(0.25, 0, -0.75, 0), "Out", "Sine", 0.4, true, function()
 			mainFrame.Visible = false
 		end)
 	end
@@ -39,7 +39,7 @@ toggleButton.MouseButton1Click:Connect(toggleFrame)
 
 -- Title
 local title = Instance.new("TextLabel", mainFrame)
-title.Size = UDim2.new(1, 0, 0.15, 0)
+title.Size = UDim2.new(1, 0, 0.12, 0)
 title.Position = UDim2.new(0, 0, 0, 0)
 title.Text = "Made By VoidStrike"
 title.BackgroundTransparency = 1
@@ -47,10 +47,10 @@ title.TextColor3 = Color3.new(1, 1, 1)
 title.Font = Enum.Font.SourceSansBold
 title.TextScaled = true
 
--- Button Generator
+-- Button Creator
 local function createButton(name, position, action)
 	local btn = Instance.new("TextButton", mainFrame)
-	btn.Size = UDim2.new(0.9, 0, 0.15, 0)
+	btn.Size = UDim2.new(0.9, 0, 0.13, 0)
 	btn.Position = position
 	btn.Text = name
 	btn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -62,19 +62,23 @@ local function createButton(name, position, action)
 end
 
 -- Buttons
-createButton("Arbix Hub", UDim2.new(0.05, 0, 0.20, 0), function()
+createButton("Arbix Hub", UDim2.new(0.05, 0, 0.14, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Youifpg/Steal-a-Brianrot/refs/heads/main/ArbixHubBEST.lua"))()
 end)
 
-createButton("Brainrot Finder", UDim2.new(0.05, 0, 0.37, 0), function()
+createButton("Brainrot Finder", UDim2.new(0.05, 0, 0.29, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/serverhopStealABrainrot"))()
 end)
 
-createButton("Delfi Hub", UDim2.new(0.05, 0, 0.54, 0), function()
+createButton("Delfi Hub", UDim2.new(0.05, 0, 0.44, 0), function()
 	loadstring(game:HttpGet("https://pastefy.app/44Il7q8s/raw"))()
 end)
 
-createButton("Grime Hub", UDim2.new(0.05, 0, 0.71, 0), function()
+createButton("Grime Hub", UDim2.new(0.05, 0, 0.59, 0), function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/xyetall1/grimehub/refs/heads/main/StealaBrainrot"))()
+end)
+
+createButton("Index Hub", UDim2.new(0.05, 0, 0.74, 0), function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/stfurespectfully/indexhub/refs/heads/main/main.lua"))()
 end)
 ]])()
